@@ -18,30 +18,30 @@ class Request
 		$this->setall();
 		
 	}
-	public function get($var = null)
+	public function get($index = null)
 	{
-		if ($var == null) {
+		if ($index == null) {
 			return $this->get;
 		}else{
-			return $this->get[$var];
+			return $this->get[$index];
 		}
 	}
-	public function post($var = null)
+	public function post($index = null)
 	{
-		if ($var == null) {
+		if ($index == null) {
 
 			return $this->post;
 		}else{
-			return $this->post[$var];
+			return $this->post[$index];
 		}
 	}
 
-	public function all($var = null)
+	public function all($index = null)
 	{
-		if ($var == null) {
+		if ($index == null) {
 			return $this->all;
 		}else{
-			return $this->all[$var];
+			return $this->all[$index];
 		}
 	}
 
