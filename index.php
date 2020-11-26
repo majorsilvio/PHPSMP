@@ -4,9 +4,16 @@
 	use \PHPSMP\App as App;
 
 	$app = new App();
-	$app->setProjectName('opa');
+	$app->setProjectName('PHPSMP');
 
 	$app->addRout('/',function($req,$res){
+
+		$res->set('name',function(){
+			return 'PHPSMP';
+		});
+		$res->set('test','test2');
+		$res->set(['project' =>'SMP']);
+
 		$res->sendFile('./views/test1.php');
 	});
 
