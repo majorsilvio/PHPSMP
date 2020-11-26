@@ -8,7 +8,7 @@ use \rout\Rout as Rout;
  */
 class App extends Rout
 {
-	private $name;
+	
 
 	function __construct(){
 		$this->setDefaultRout();
@@ -28,7 +28,6 @@ class App extends Rout
 	public function setProjectName($value='')
 	{
 		$_SERVER['SERVER_NAME'] = $value;
-		$this->name = $value;
 	}
 	
 }

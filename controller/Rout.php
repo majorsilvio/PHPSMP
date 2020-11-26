@@ -28,9 +28,8 @@ class Rout
 
 	public static function goTo($rout)
 	{	
-
-		$replaced = preg_replace('/\?.*/', '', $rout);
-		self::$routsF[$replaced](new req ,new res());
+		$rout = preg_replace('/\?.*/', '', $rout);
+		self::$routsF[$rout](new req ,new res());
 	}
 	public static function getRouts()
 	{

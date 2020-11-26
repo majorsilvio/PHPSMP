@@ -13,38 +13,52 @@ class Request
 	
 	function __construct()
 	{
-		$this->$get =$_GET;
-		$this->$post = $_POST;
-		$this->$all = $_REQUEST;
+		$this->setget();
+		$this->setpost();
+		$this->setall();
 		
 	}
-	public function get()
+	public function get($var = null)
 	{
-		return $this->get;
+		if ($var == null) {
+			return $this->get;
+		}else{
+			return $this->get[$var];
+		}
 	}
-	public function post()
+	public function post($var = null)
 	{
-		return $this->post;
-	}
-	public function all()
-	{
-		return $this->all;
+		if ($var == null) {
+
+			return $this->post;
+		}else{
+			return $this->post[$var];
+		}
 	}
 
-	public function setget()
+	public function all($var = null)
 	{
-		return $this->get;
+		if ($var == null) {
+			return $this->all;
+		}else{
+			return $this->all[$var];
+		}
 	}
-	public function setpost()
+
+	protected function setget()
 	{
-		return $this->post;
+		$this->get = $_GET;
 	}
-	public function setall()
+	protected function setpost()
 	{
-		return $this->all;
+		$this->post = $_POST;
+	}
+	protected function setall()
+	{
+		$this->all = $_REQUEST;
 	}
 }
 
 
 
- ?>
+?>
