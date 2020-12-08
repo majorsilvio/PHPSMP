@@ -1,0 +1,11 @@
+{
+	"user":{
+		"name":"varchar(15)",
+		"nickname":"varchar(15)"
+	},
+	
+	"adm":{
+		"nickname":"varchar(15)",
+		"name":"varchar(15) not null"
+	}
+}
