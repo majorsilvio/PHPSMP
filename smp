@@ -1,0 +1,17 @@
+#!/bin/bash
+
+case $1 in
+	"")
+echo 'expecifique a operação'
+;;
+'bd')
+if [[ -s "./controller/makeDB.php" ]]; then
+	php './controller/makeDB.php'
+fi;;
+'remake')
+if [[ -s "./controller/remakeDB.php" ]]; then
+	php './controller/remakeDB.php'
+fi;;
+*)
+echo 'operação' $* 'invalida'
+esac
