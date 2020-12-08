@@ -11,7 +11,9 @@ class App extends Rout
 	
 
 	function __construct(){
-		$this->setDefaultRout();
+		$this->defaultRout(function (){
+			echo "this is a default rout";
+		});
 		$this->setProjectName("PHPSMP");
 	}
 

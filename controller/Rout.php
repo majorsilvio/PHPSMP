@@ -29,18 +29,21 @@ class Rout
 	public static function goTo($rout)
 	{	
 		$rout = preg_replace('/\?.*/', '', $rout);
+		if (is_null(self::$routsF[$rout])) {
+			self::$routsF['default'](new req ,new res());
+		}else{
 		self::$routsF[$rout](new req ,new res());
+
+		}
 	}
 	public static function getRouts()
 	{
 		return self::$routs;
 	}
 	
-	public function setDefaultRout($path ='default')
+	public function defaultRout(Object $func,$path ='default')
 	{
-		$this->addRout($path,function($req,$res){
-			$res->send('The project is runing');
-		});
+		self::$routsF[$path] = $func;
 	}
 
 }

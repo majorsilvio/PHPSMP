@@ -17,7 +17,7 @@
 		$res->sendFile('./views/test1.php');
 	});
 
-	$app->addRout('/test2',function($req,$res){
+	$app->defaultRout(function($req,$res){
 		$res->sendFile(dirname(__file__).'/views/test2.php');
 	});
 	
