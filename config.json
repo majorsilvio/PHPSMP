@@ -1,0 +1,15 @@
+{
+	"project":{
+
+	},
+
+	"bd":{
+
+	"driver":"mysql",
+	"dbname": "test",
+	"host":"localhost",
+	"port":"",
+	"user":"root",
+	"password":"952876143"
+	}
+}
