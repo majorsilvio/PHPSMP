@@ -18,8 +18,14 @@
 	});
 
 	$app->defaultRout(function($req,$res){
+		App::searchTemps();	
+	});
+
+	$app->addRout('/test2',function($req,$res){
 		$res->sendFile(dirname(__file__).'/views/test2.php');
 	});
+
+
 	
 	
 	App::start();

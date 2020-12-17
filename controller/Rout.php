@@ -29,7 +29,7 @@ class Rout
 	public static function goTo($rout)
 	{	
 		$rout = preg_replace('/\?.*/', '', $rout);
-		if (is_null(self::$routsF[$rout])) {
+		if (!isset(self::$routsF[$rout])) {
 			self::$routsF['default'](new req ,new res());
 		}else{
 		self::$routsF[$rout](new req ,new res());

@@ -11,6 +11,6 @@
 </head>
 <body>
 <h1><?= 'Welcome to test2' ?></h1>
-<h2><a href="/?test=2">Change page</a></h2>
+<h2><a href="/">Change page</a></h2>
 </body>
 </html>
