@@ -9,7 +9,7 @@ use \rout\Rout as Rout;
 class App extends Rout
 {
 
-	public static $temp;
+	protected static $temps;
 	
 
 	function __construct(){
@@ -18,6 +18,21 @@ class App extends Rout
 		});
 		$this->setProjectName("PHPSMP");
 		$this->searchTemps();
+	}
+
+	private function setTemps($filename){
+		
+		$tempName =  explode('.', $filename)[1];
+		self::$temps[$tempName] = function () use ($filename) {
+				include_once dirname(__file__).'/../views/temp/'.$filename;
+			};
+	}
+	public static function getTemps(){
+		return self::$temps;
+	}
+
+	public static function getTemp($tempName){
+		return seld::$temps[$tempName];
 	}
 
 	public static function start()
@@ -32,10 +47,7 @@ class App extends Rout
 	public function searchTemps(){
 		$allTemps = scandir(dirname(__file__).'/../views/temp');
 		for ($i=2; $i < sizeof($allTemps) ; $i++) {
-			$tempName =  explode('.', $allTemps[$i])[1];
-			self::$temp[$tempName] = function () use ($allTemps,$i) {
-				include_once dirname(__file__).'/../views/temp/'.$allTemps[$i];
-			};
+			$this->setTemps($allTemps[$i]);
 		}
 	}
 	

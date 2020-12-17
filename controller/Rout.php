@@ -10,8 +10,8 @@ use \req\Request as req;
  */
 class Rout
 {
-	public static $routs = [];
-	public static $routsF = [];
+	protected static $routs = [];
+	protected static $routsF = [];
 
 	function __construct(){
 	}
@@ -26,19 +26,19 @@ class Rout
 		}
 	}
 
+	public static function getRouts()
+	{
+		return self::$routs;
+	}
 	public static function goTo($rout)
 	{	
 		$rout = preg_replace('/\?.*/', '', $rout);
 		if (!isset(self::$routsF[$rout])) {
 			self::$routsF['default'](new req ,new res());
 		}else{
-		self::$routsF[$rout](new req ,new res());
+			self::$routsF[$rout](new req ,new res());
 
 		}
-	}
-	public static function getRouts()
-	{
-		return self::$routs;
 	}
 	
 	public function defaultRout(Object $func,$path ='default')

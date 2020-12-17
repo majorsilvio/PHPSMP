@@ -21,11 +21,6 @@ class Response
 		}
 	}
 
-	public function search($fileText)
-	{
-		
-	}
-
 	public function send($content = ''){
 		echo $content;
 	}
@@ -38,7 +33,8 @@ class Response
 			include_once $path;
 		}
 		$file = ob_get_clean();
-		foreach (App::$temp as $key => $value) {
+		$temps = App::getTemps();
+		foreach ($temps as $key => $value) {
 			$pattern = '/\[\['.$key.'\]\]/';
 			// echo $pattern;
 			$file = preg_replace_callback($pattern, $value, $file);
