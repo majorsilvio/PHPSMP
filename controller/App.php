@@ -24,7 +24,7 @@ class App extends Rout
 		
 		$tempName =  explode('.', $filename)[1];
 		self::$temps[$tempName] = function () use ($filename) {
-				include_once dirname(__file__).'/../views/temp/'.$filename;
+				include dirname(__file__).'/../views/temp/'.$filename;
 			};
 	}
 	public static function getTemps(){
